@@ -40,44 +40,39 @@ npm start
 Use the Expo Go app on your iPhone or Android device to scan the QR code and test the app.
 
 ✅ Pre-commit and Code Quality
-This project uses Prettier and ESLint for formatting and linting, with pre-commit hooks.
+This project uses ESLint and Prettier for code quality, with Husky pre-commit hooks:
 
-Install dev tools:
-
-```bash
-npm install --save-dev eslint prettier husky lint-staged eslint-config-prettier eslint-plugin-react-hooks
-```
-
-Enable Git hooks with Husky (modern setup):
+1. **Install Dev Tools** (already in package.json):
 
 ```bash
-npx husky init
+npm install --save-dev eslint prettier @eslint/js eslint-config-prettier eslint-plugin-react eslint-plugin-react-hooks husky lint-staged
 ```
 
-This will set up the `.husky/` directory and add a sample pre-commit hook.
-
-Replace the contents of `.husky/pre-commit` with:
+2. **Set Up Git Hooks**:
 
 ```bash
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx lint-staged
+npm run prepare  # Sets up Husky hooks
 ```
 
-Add this to your `package.json`:
+3. **Pre-commit Automation**:
+   When you commit code, lint-staged will automatically:
+
+- Run ESLint on all staged TypeScript files (.ts/.tsx)
+- Run Prettier formatting on them
+
+4. **Manual Commands**:
+
+```bash
+npm run lint    # Lint all files
+npm run format  # Format all files
+```
+
+The configuration is already set up in package.json:
 
 ```json
 "lint-staged": {
   "*.{ts,tsx}": ["eslint --fix", "prettier --write"]
 }
-```
-
-To manually lint and format code:
-
-```bash
-npm run lint
-npm run format
 ```
 
 💧 Tech Stack
