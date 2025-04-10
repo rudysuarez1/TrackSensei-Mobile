@@ -1,0 +1,9 @@
+# .gitignore
+node_modules
+.expo
+.expo-shared
+dist
+*.log
+ios/build
+android/build
+.env
