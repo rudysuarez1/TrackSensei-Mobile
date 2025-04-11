@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useAppStore } from "../state/useAppStore";
+import { useAppStore } from "../providers/useAppStore";
 
 export const startLogging = async () => {
   const { jetsonIp } = useAppStore.getState();

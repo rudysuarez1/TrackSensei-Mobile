@@ -1,13 +1,5 @@
 import { create } from "zustand";
-
-interface AppState {
-  isLogging: boolean;
-  status: string;
-  jetsonIp: string;
-  setIsLogging: (val: boolean) => void;
-  setStatus: (msg: string) => void;
-  setJetsonIp: (ip: string) => void;
-}
+import { AppState } from "../types/app-state";
 
 export const useAppStore = create<AppState>((set) => ({
   isLogging: false,

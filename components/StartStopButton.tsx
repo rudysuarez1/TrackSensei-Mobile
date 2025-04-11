@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-native";
-import { useAppStore } from "../state/useAppStore";
+import { useAppStore } from "../providers/useAppStore";
 import { startLogging, stopLogging } from "../api/jetson";
 
 const StartStopButton = () => {
